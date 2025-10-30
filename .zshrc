@@ -1,16 +1,23 @@
-bindkey "\e[A" history-beginning-search-backward
-bindkey "\e[B" history-beginning-search-forward
+bindkey "\e[A" history-search-backward
+bindkey "\e[B" history-search-forward
 
+HISTSIZE=5000
 HISTFILE=~/.zsh_history
-HISTSIZE=100000
-SAVEHIST=100000
-setopt HIST_SAVE_NO_DUPS
-setopt INC_APPEND_HISTORY
+SAVEHIST=$HISTSIZE
+HISTDUP=erase
+setopt appendhistory
+setopt sharehistory
+setopt hist_ignore_all_dups
+setopt hist_save_no_dups
+setopt hist_ignore_dups
+setopt hist_find_no_dups
+
+zstyle ':completion:*' matcher-list 'm:{a-z}={A-Za-z}'
 
 alias ll='ls -la'
 alias gs='git status'
 alias gl='git log --oneline --graph --decorate'
-# alias sv='source .venv/bin/activate'
+alias ga='git add'
 alias pb='pnpm build'
 alias pd='pnpm dev'
 alias n='nvim'
@@ -30,7 +37,6 @@ sv() {
     echo "❌ No virtual environment found at: $venv_path"
     return 1
   fi
-
 }
 
 autoload -Uz compinit
