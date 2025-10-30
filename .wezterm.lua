@@ -6,8 +6,9 @@ config.default_domain = "WSL:Ubuntu-22.04"
 config.audible_bell = "Disabled"
 
 config.font_size = 10.5
-config.font = wezterm.font("FiraCode Nerd Font")
+config.font = wezterm.font("FiraCode Nerd Font", { weight = 'Medium' })
 config.color_scheme = "tokyonight_night"
+-- config.color_scheme = "Apple System Colors"
 config.colors = {
     cursor_bg = "#7aa2f7",
     cursor_border = "#7aa2f7"
@@ -23,7 +24,7 @@ config.keys = {
     {
         key = "w",
         mods = "CTRL",
-        action = act.CloseCurrentPane {confirm = false}
+        action = act.CloseCurrentPane {confirm = true}
     },
     {
         key = "d",
