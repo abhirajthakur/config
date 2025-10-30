@@ -13,7 +13,9 @@ setopt hist_ignore_dups
 setopt hist_find_no_dups
 
 zstyle ':completion:*' matcher-list 'm:{a-z}={A-Za-z}'
+zstyle ':completion:*' list-colors "${(s.:.)LS_COLORS}"
 
+alias ls='ls --color'
 alias ll='ls -la'
 alias gs='git status'
 alias gl='git log --oneline --graph --decorate'
