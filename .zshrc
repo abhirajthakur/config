@@ -1,5 +1,8 @@
-bindkey "\e[A" history-search-backward
-bindkey "\e[B" history-search-forward
+# bindkey "\e[A" history-search-backward
+# bindkey "\e[B" history-search-forward
+
+bindkey "^[[A" history-search-backward
+bindkey "^[[B" history-search-forward
 
 HISTSIZE=5000
 HISTFILE=~/.zsh_history
@@ -39,6 +42,7 @@ sv() {
     echo "❌ No virtual environment found at: $venv_path"
     return 1
   fi
+
 }
 
 autoload -Uz compinit
@@ -67,3 +71,16 @@ export PATH=$PATH:/usr/local/go/bin
 # Generated for envman. Do not edit.
 [ -s "$HOME/.config/envman/load.sh" ] && source "$HOME/.config/envman/load.sh"
 export PATH=$PATH:$HOME/go/bin
+
+# Function to send the current working directory to WezTerm
+function __wezterm_osc7() {
+  if hash wezterm 2>/dev/null; then
+    # Use WezTerm's helper command to set the working directory if available
+    wezterm set-working-directory 2>/dev/null && return
+  fi
+  # Fallback: Send the current working directory to the terminal using OSC 7
+  printf "\033]7;file://%s%s\033\\" "${HOSTNAME}" "${PWD}"
+}
+
+# Hook to execute the function after every interactive command
+precmd_functions+=(__wezterm_osc7)
