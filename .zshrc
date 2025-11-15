@@ -30,23 +30,26 @@ alias -g ...='../..'
 alias -g ....='../../..'
 alias -g .....='../../../..'
 
+autoload -Uz compinit
+compinit
+
 sv() {
   local target_dir="${1:-.}"
   local venv_path="$target_dir/.venv/bin/activate"
 
-  if [ -f "$venv_path" ]; then
-    # shellcheck disable=SC1090
+  if [[ -f "$venv_path" ]]; then
     source "$venv_path"
-    echo "✅ Activated virtual environment at: $venv_path"
+    echo "Activated virtual environment at: $venv_path"
   else
-    echo "❌ No virtual environment found at: $venv_path"
+    echo "No virtual environment found at: $venv_path"
     return 1
   fi
-
 }
 
-autoload -Uz compinit
-compinit
+compdef _cd sv
+
+compdef _sv_completion sv
+
 
 eval "$(starship init zsh)"
 
