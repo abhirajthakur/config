@@ -29,6 +29,8 @@ alias n='nvim'
 alias -g ...='../..'
 alias -g ....='../../..'
 alias -g .....='../../../..'
+alias t="tmux"
+alias tn='tmux new -s "$(basename "$PWD")"'
 
 autoload -Uz compinit
 compinit
@@ -47,9 +49,6 @@ sv() {
 }
 
 compdef _cd sv
-
-compdef _sv_completion sv
-
 
 eval "$(starship init zsh)"
 
