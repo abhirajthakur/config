@@ -1,17 +1,18 @@
 return {
   { "folke/flash.nvim", enabled = false },
 
-  -- {
-  --   "folke/tokyonight.nvim",
-  --   lazy = true,
-  --   opts = { style = "night" },
-  -- },
+  {
+    "folke/noice.nvim",
+    opts = function(_, opts)
+      table.insert(opts.routes, {
+        filter = {
+          event = "notify",
+          find = "No information available",
+        },
+        opts = { skip = true },
+      })
 
-  -- {
-  --   "LazyVim/LazyVim",
-  --   opts = {
-  --     colorscheme = "tokyonight",
-  --   },
-  -- }
-
+      opts.presets.lsp_doc_border = true
+    end,
+  },
 }
