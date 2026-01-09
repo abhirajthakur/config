@@ -2,17 +2,17 @@ local wezterm = require("wezterm")
 local config = wezterm.config_builder()
 local act = wezterm.action
 
-config.default_domain = "WSL:Ubuntu-22.04"
+config.default_domain = "WSL:Ubuntu-24.04"
 config.audible_bell = "Disabled"
 
-config.font_size = 11
-config.font = wezterm.font_with_fallback({
-  { family = "FiraCode Nerd Font" },
-  "JetBrains Mono",
-  "Noto Color Emoji",
-  "Symbols Nerd Font Mono",
-})
 
+config.window_background_opacity = 0.6
+config.win32_system_backdrop = "Acrylic"
+
+config.font_size = 11
+config.font = wezterm.font { 
+  family = "FiraCode Nerd Font", weight = 'Medium' 
+}
 -- config.color_scheme = "tokyonight_night"
 config.color_scheme = "Apple System Colors"
 config.colors = {
@@ -20,7 +20,7 @@ config.colors = {
   cursor_border = "#7aa2f7",
 }
 
--- config.window_decorations = "RESIZE" c
+-- config.window_decorations = "RESIZE"
 config.enable_tab_bar = false
 config.mouse_bindings = mouse_bindings
 
