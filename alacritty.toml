@@ -1,0 +1,69 @@
+[terminal.shell]
+program = "wsl.exe"
+args = ["-d", "Ubuntu-24.04", "--cd", "~"]
+
+[window]
+dimensions = { columns = 90, lines = 27 }
+# opacity = 0.9
+decorations = "Full"  # Use "None" if you want minimal
+
+[font]
+size = 10.5
+
+[font.normal]
+family = "FiraCode Nerd Font"
+style = "Medium"
+
+[general]
+import = [
+  "themes/argonaut.toml"
+  # "themes/challenger_deep.toml"
+  # "themes/tokyo_night.toml"
+]
+
+[cursor]
+style = { shape = "Block", blinking = "Off" }
+
+[[keyboard.bindings]]
+key = "V"
+mods = "Control"
+action = "Paste"
+
+[[keyboard.bindings]]
+key = "W"
+mods = "Control|Shift"
+action = "Quit"
+
+[[keyboard.bindings]]
+key = "N"
+mods = "Control|Shift"
+action = "SpawnNewInstance"
+
+[[keyboard.bindings]]
+key = "Back"
+mods = "Control"
+chars = "\u0017"  # Ctrl+W
+
+[[keyboard.bindings]]
+key = "Delete"
+mods = "Control"
+chars = "\u001bd"  # Alt+d
+
+[[keyboard.bindings]]
+key = "Left"
+mods = "Control"
+chars = "\u001bb"  # Alt+b
+
+[[keyboard.bindings]]
+key = "Right"
+mods = "Control"
+chars = "\u001bf"  # Alt+f
+
+# [[mouse.bindings]]
+# mouse = "Right"
+# action = "Copy"
+
+# Automatically copy selection to clipboard
+[selection]
+save_to_clipboard = true
+
