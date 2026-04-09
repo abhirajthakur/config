@@ -1,0 +1,163 @@
+[
+  // =========================
+  // WORKSPACE (GLOBAL, NO LEADER KEYS)
+  // =========================
+  {
+    "context": "Workspace",
+    "bindings": {
+      "ctrl-h": "workspace::ActivatePaneLeft",
+      "ctrl-k": "workspace::ActivatePaneUp",
+      "ctrl-l": "workspace::ActivatePaneRight"
+    }
+  },
+
+  // =========================
+  // VIM NORMAL / VISUAL / OPERATOR
+  // =========================
+  {
+    "context": "vim_mode == normal || vim_mode == visual || vim_mode == operator",
+    "bindings": {
+      // FILES
+      "space f f": "file_finder::Toggle",
+      "space f r": ["projects::OpenRecent", { "create_new_window": false }],
+      "space f s": "workspace::Save",
+      "space f w": "workspace::SaveAll",
+
+      // EXPLORER / PANELS
+      "space e": "workspace::ToggleRightDock", // (lift or right)
+      "space g s": "git_panel::ToggleFocus",
+      "space x x": "diagnostics::Deploy",
+
+      // SEARCH
+      "space /": "pane::DeploySearch",
+      "space s g": "pane::DeploySearch",
+      "space s s": "outline::Toggle",
+      "space s S": "project_symbols::Toggle",
+
+      // BUFFERS
+      "space b d": ["pane::CloseActiveItem", { "close_pinned": false }],
+      "space b n": "pane::ActivateNextItem",
+      "space b p": "pane::ActivatePreviousItem",
+      "shift-h": "pane::ActivatePreviousItem",
+      "shift-l": "pane::ActivateNextItem",
+
+      // WINDOWS / PANES
+      "space w h": "workspace::ActivatePaneLeft",
+      "space w j": "workspace::ActivatePaneDown",
+      "space w k": "workspace::ActivatePaneUp",
+      "space w l": "workspace::ActivatePaneRight",
+      "space w v": "pane::SplitRight",
+      "space w s": "pane::SplitDown",
+      "space w q": ["pane::CloseActiveItem", { "close_pinned": false }],
+
+      // GOTO
+      "space g d": "editor::GoToDefinition",
+      "space g D": "editor::GoToDeclaration",
+      "space g r": "editor::FindAllReferences",
+      "space g i": "editor::GoToImplementation",
+      "space g y": "editor::GoToTypeDefinition",
+      "space g h": "editor::Hover",
+      "space g b": "editor::BlameHover",
+
+      // DIAGNOSTICS
+      "space x n": [
+        "editor::GoToDiagnostic",
+        { "severity": { "min": "hint", "max": "error" } }
+      ],
+      "space x p": [
+        "editor::GoToPreviousDiagnostic",
+        { "severity": { "min": "hint", "max": "error" } }
+      ],
+
+      // QUIT
+      "space q q": "zed::Quit",
+      "space q w": "workspace::CloseWindow",
+
+      // CTRL WINDOW NAV (NORMAL/VISUAL)
+      "ctrl-h": "workspace::ActivatePaneLeft",
+      "ctrl-j": "workspace::ActivatePaneDown",
+      "ctrl-k": "workspace::ActivatePaneUp",
+      "ctrl-l": "workspace::ActivatePaneRight"
+    }
+  },
+
+  // =========================
+  // VIM NORMAL ONLY
+  // =========================
+  {
+    "context": "vim_mode == normal",
+    "bindings": {
+      "space c": "vim::PushToggleComments",
+
+      "] d": "editor::GoToDiagnostic",
+      "[ d": "editor::GoToPreviousDiagnostic",
+
+      "] e": [
+        "editor::GoToDiagnostic",
+        { "severity": { "min": "error", "max": "error" } }
+      ],
+      "[ e": [
+        "editor::GoToPreviousDiagnostic",
+        { "severity": { "min": "error", "max": "error" } }
+      ],
+
+      "] w": [
+        "editor::GoToDiagnostic",
+        { "severity": { "min": "warning", "max": "warning" } }
+      ],
+      "[ w": [
+        "editor::GoToPreviousDiagnostic",
+        { "severity": { "min": "warning", "max": "warning" } }
+      ],
+
+      "] c": "editor::GoToHunk",
+      "[ c": "editor::GoToPreviousHunk",
+
+      "] b": "pane::ActivateNextItem",
+      "[ b": "pane::ActivatePreviousItem"
+    }
+  },
+
+  // =========================
+  // VIM VISUAL ONLY
+  // =========================
+  {
+    "context": "vim_mode == visual",
+    "bindings": {
+      "space c": "vim::ToggleComments"
+    }
+  },
+
+  {
+    "context": "Editor && vim_mode == insert",
+    "bindings": {
+      "ctrl-j": "terminal_panel::Toggle"
+    }
+  },
+  {
+    "context": "Editor && vim_mode == normal",
+    "bindings": {
+      "space c f": "editor::Format",
+      "space c o": "editor::OrganizeImports",
+      "space c a": "editor::ToggleCodeActions",
+      "space c r": "editor::Rename",
+      "space h": "editor::Hover"
+    }
+  },
+  {
+    "context": "Editor && vim_mode == visual",
+    "bindings": {
+      "space c f": "editor::Format",
+      "space c o": "editor::OrganizeImports",
+      "space c a": "editor::ToggleCodeActions",
+      "space c r": "editor::Rename",
+      "space h": "editor::Hover"
+    }
+  },
+  {
+    "context": "ProjectPanel",
+    "bindings": {
+      "space e": "workspace::ToggleRightDock"
+    }
+  }
+]
