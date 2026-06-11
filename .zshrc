@@ -70,11 +70,29 @@ export NVM_DIR="$HOME/.nvm"
 export BUN_INSTALL="$HOME/.bun"
 export PATH="$BUN_INSTALL/bin:$PATH"
 
+# go
+export PATH="$PATH:/usr/local/go/bin"
+export PATH="$PATH:$HOME/go/bin"
+
 eval "$(starship init zsh)"
 
 . "$HOME/.local/bin/env"
 
-# In ~/.bashrc or ~/.zshrc
+# # In ~/.bashrc or ~/.zshrc
 if [ -z "$TMUX" ]; then
   export TERM="xterm-256color" # or your terminal's specific terminfo
 fi
+export DOCKER_BUILDKIT=1
+
+
+function __wezterm_osc7() {
+  if hash wezterm 2>/dev/null; then
+    # Use WezTerm's helper command to set the working directory if available
+    wezterm set-working-directory 2>/dev/null && return
+  fi
+  # Fallback: Send the current working directory to the terminal using OSC 7
+  printf "\033]7;file://%s%s\033\\" "${HOSTNAME}" "${PWD}"
+}
+
+# Hook to execute the function after every interactive command
+precmd_functions+=(__wezterm_osc7)
