@@ -31,11 +31,19 @@ zstyle ':completion:*:kill:*' command 'ps -u $USER -o pid,%cpu,tty,cputime,cmd'
 # bindkey "^[[A" history-search-backward
 # bindkey "^[[B" history-search-forward
 
+autoload -U up-line-or-beginning-search
+autoload -U down-line-or-beginning-search
+zle -N up-line-or-beginning-search
+zle -N down-line-or-beginning-search
+
+bindkey "${terminfo[kcuu1]}" up-line-or-beginning-search   # Up arrow
+bindkey "${terminfo[kcud1]}" down-line-or-beginning-search # Down arrow
+
 alias ls='ls --color'
 alias ll='ls -la'
 alias gs='git status'
 alias gd='git diff'
-alias gl='git log --oneline --graph --decorate'
+alias gl='git log --graph --color=always --date=local --format="%C(auto)%h%C(reset) %C(cyan)%ad%C(reset) %C(auto)%d%C(reset) %s"'
 alias ga='git add'
 alias pb='pnpm build'
 alias pd='pnpm dev'
@@ -96,3 +104,9 @@ function __wezterm_osc7() {
 
 # Hook to execute the function after every interactive command
 precmd_functions+=(__wezterm_osc7)
+
+# nub
+export PATH="$HOME/.nub/bin:$PATH"
+
+# kilo
+export PATH=/home/abhiraj/.kilo/bin:$PATH
