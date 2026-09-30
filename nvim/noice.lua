@@ -1,8 +1,20 @@
 return {
-  "folke/noice.nvim",
-  event = "VeryLazy",
-  dependencies = {
-    "MunifTanjim/nui.nvim",
-    "rcarriga/nvim-notify",
+  {
+    "folke/noice.nvim",
+    opts_extend = { "routes" },
+    opts = {
+      routes = {
+        {
+          filter = {
+            event = "lsp",
+            kind = "progress",
+            any = {
+              { find = "pyright" },
+            },
+          },
+          opts = { skip = true },
+        },
+      },
+    },
   },
 }
