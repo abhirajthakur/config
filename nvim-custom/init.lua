@@ -5,6 +5,8 @@ vim.g.maplocalleader = "\\"
 require("config.options")
 require("config.plugins") -- vim.pack.add(...)  <- add new plugins here
 require("config.ui") -- theme, file tree/picker, which-key
+require("config.git") -- gitsigns
+require("config.editing") -- auto pairs + surround
 require("config.statusline") -- lualine
 require("config.noice") -- nicer cmdline/messages
 require("config.explorer") -- oil.nvim file browser

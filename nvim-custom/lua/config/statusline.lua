@@ -21,7 +21,7 @@ require("lualine").setup({
 	},
 	sections = {
 		lualine_a = { "mode" },
-		lualine_b = { "branch" },
+		lualine_b = { "branch", "diff" },
 		lualine_c = {
 			"diagnostics",
 			{ "filename", path = 1, symbols = { modified = " ●", readonly = " " } },
