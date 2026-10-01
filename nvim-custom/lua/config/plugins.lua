@@ -1,0 +1,20 @@
+-- Native plugin manager. Versions are locked in nvim-pack-lock.json.
+-- Update: :lua vim.pack.update()
+vim.pack.add({
+	"https://github.com/folke/tokyonight.nvim",
+	"https://github.com/nvim-mini/mini.icons",
+	"https://github.com/nvim-lualine/lualine.nvim",
+	"https://github.com/nvim-mini/mini.tabline",
+	"https://github.com/folke/snacks.nvim",
+	"https://github.com/MunifTanjim/nui.nvim",
+	"https://github.com/folke/noice.nvim",
+	"https://github.com/stevearc/oil.nvim",
+	"https://github.com/folke/which-key.nvim",
+	"https://github.com/neovim/nvim-lspconfig",
+	"https://github.com/mason-org/mason.nvim",
+	"https://github.com/mason-org/mason-lspconfig.nvim",
+	"https://github.com/WhoIsSethDaniel/mason-tool-installer.nvim",
+	"https://github.com/stevearc/conform.nvim",
+	{ src = "https://github.com/saghen/blink.cmp", version = vim.version.range("1.*") },
+	"https://github.com/romus204/tree-sitter-manager.nvim",
+}, { confirm = false })
