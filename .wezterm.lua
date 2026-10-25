@@ -2,11 +2,11 @@ local wezterm = require("wezterm")
 local config = wezterm.config_builder()
 local act = wezterm.action
 
-config.default_domain = "WSL:Ubuntu-24.04"
+config.default_domain = "WSL:Ubuntu"
 config.audible_bell = "Disabled"
 
-config.window_background_opacity = 0.65
-config.win32_system_backdrop = "Acrylic"
+-- config.window_background_opacity = 0.65
+-- config.win32_system_backdrop = "Acrylic"
 
 config.font_size = 12
 config.font = wezterm.font { 
@@ -21,13 +21,18 @@ config.color_scheme = "tokyonight_night"
 -- config.color_scheme = 'Dark+'
 -- config.color_scheme = 'Dracula (base16)'
 
-config.enable_tab_bar = false
-config.mouse_bindings = mouse_bindings
+config.enable_tab_bar = true
+config.hide_tab_bar_if_only_one_tab = true
+
+-- Cursor appearance
+config.default_cursor_style = "BlinkingBar"
 
 config.colors = {
   cursor_bg = "#7aa2f7",
   cursor_border = "#7aa2f7",
 }
+
+config.mouse_bindings = mouse_bindings
 
 config.keys = {
   {
