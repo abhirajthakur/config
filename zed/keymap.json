@@ -1,10 +1,18 @@
 [
-  // ============================================================
-  // LAZYVIM-STYLE LEADER KEYMAPS
-  // ============================================================
   {
     "context": "Editor && vim_mode == normal && !menu",
     "bindings": {
+      // ----------------------------------------------------------
+      // PANE NAVIGATION (NORMAL MODE ONLY)
+      // ----------------------------------------------------------
+      "ctrl-h": "workspace::ActivatePaneLeft",
+      "ctrl-j": "workspace::ActivatePaneDown",
+      "ctrl-k": "workspace::ActivatePaneUp",
+      "ctrl-l": "workspace::ActivatePaneRight",
+
+      // ----------------------------------------------------------
+      // FILE FINDER & SEARCH
+      // ----------------------------------------------------------
       "space e": "project_panel::Toggle",
 
       "space space": "file_finder::Toggle",
@@ -14,9 +22,10 @@
       "space s g": "project_search::ToggleFocus",
       "space /": "project_search::ToggleFocus",
 
+      // ----------------------------------------------------------
+      // BUFFERS
+      // ----------------------------------------------------------
       "space ,": "tab_switcher::Toggle",
-
-      "space f t": "terminal_panel::ToggleFocus",
 
       "ctrl-e": [
         "pane::CloseActiveItem",
@@ -32,20 +41,10 @@
         }
       ],
 
-      "space c a": "editor::ToggleCodeActions",
-      "space c r": "editor::Rename",
-      "space c f": "editor::Format",
-      "space c o": "editor::OrganizeImports"
-    }
-  },
+      "space b o": "pane::CloseOtherItems",
 
-  {
-    "context": "Editor && vim_mode == normal && !menu",
-    "bindings": {
-      "ctrl-h": "workspace::ActivatePaneLeft",
-      "ctrl-j": "workspace::ActivatePaneDown",
-      "ctrl-k": "workspace::ActivatePaneUp",
-      "ctrl-l": "workspace::ActivatePaneRight",
+      "space b n": "pane::ActivateNextItem",
+      "space b p": "pane::ActivatePreviousItem",
 
       "shift-h": "pane::ActivatePreviousItem",
       "shift-l": "pane::ActivateNextItem",
@@ -53,14 +52,47 @@
       "[ b": "pane::ActivatePreviousItem",
       "] b": "pane::ActivateNextItem",
 
+      // ----------------------------------------------------------
+      // TERMINAL
+      // ----------------------------------------------------------
+      "space f t": "terminal_panel::ToggleFocus",
+
+      // ----------------------------------------------------------
+      // CODE ACTIONS
+      // ----------------------------------------------------------
+      "space c a": "editor::ToggleCodeActions",
+      "space c r": "editor::Rename",
+      "space c f": "editor::Format",
+      "space c o": "editor::OrganizeImports",
+
+      // ----------------------------------------------------------
+      // CODE NAVIGATION
+      // ----------------------------------------------------------
+      "space c d": "editor::GoToDefinition",
+      "space c D": "editor::GoToDeclaration",
+      "space c i": "editor::GoToImplementation",
+      "space c t": "editor::GoToTypeDefinition",
+
+      // REFERENCES
+      "space r r": "editor::FindAllReferences",
+
+      // ----------------------------------------------------------
+      // DIAGNOSTICS
+      // ----------------------------------------------------------
       "[ d": "editor::GoToPreviousDiagnostic",
       "] d": "editor::GoToDiagnostic",
 
+      // ----------------------------------------------------------
+      // GIT
+      // ----------------------------------------------------------
       "[ c": "editor::GoToPreviousHunk",
       "] c": "editor::GoToHunk"
     }
   },
 
+  // ============================================================
+  // 2. EDITOR - VISUAL MODE
+  // ============================================================
   {
     "context": "Editor && vim_mode == visual && !menu",
     "bindings": {
@@ -69,38 +101,63 @@
     }
   },
 
+  // ============================================================
+  // 3. PROJECT PANEL / FILE EXPLORER
+  // ============================================================
   {
     "context": "ProjectPanel && not_editing",
     "bindings": {
-      "space e": "project_panel::Toggle",
+      // ----------------------------------------------------------
+      // PANE NAVIGATION
+      // Works regardless of whether explorer is on left or right.
+      // ----------------------------------------------------------
+      "ctrl-h": "workspace::ActivatePaneLeft",
+      "ctrl-j": "workspace::ActivatePaneDown",
+      "ctrl-k": "workspace::ActivatePaneUp",
+      "ctrl-l": "workspace::ActivatePaneRight",
 
-      "ctrl-l": "workspace::FocusCenterPane",
-
-      "h": "project_panel::CollapseSelectedEntry",
+      // ----------------------------------------------------------
+      // TREE NAVIGATION
+      // ----------------------------------------------------------
       "j": "menu::SelectNext",
       "k": "menu::SelectPrevious",
+
+      "h": "project_panel::CollapseSelectedEntry",
       "l": "project_panel::ExpandSelectedEntry",
 
       "o": "project_panel::Open",
+      "enter": "project_panel::Open",
 
+      // ----------------------------------------------------------
+      // FILE OPERATIONS
+      // ----------------------------------------------------------
       "a": "project_panel::NewFile",
       "A": "project_panel::NewDirectory",
 
       "r": "project_panel::Rename",
       "d": "project_panel::Trash",
+
       "x": "project_panel::Cut",
       "c": "project_panel::Copy",
-      "p": "project_panel::Paste"
+      "p": "project_panel::Paste",
+
+      // ----------------------------------------------------------
+      // EXPLORER
+      // ----------------------------------------------------------
+      "space e": "project_panel::Toggle"
     }
   },
 
+  // ============================================================
+  // 4. PROJECT PANEL - SEARCH / NAVIGATION
+  // ============================================================
   {
-    "context": "Dock",
+    "context": "ProjectPanel",
     "bindings": {
-      "ctrl-w h": "workspace::ActivatePaneLeft",
-      "ctrl-w j": "workspace::ActivatePaneDown",
-      "ctrl-w k": "workspace::ActivatePaneUp",
-      "ctrl-w l": "workspace::ActivatePaneRight"
+      "ctrl-h": "workspace::ActivatePaneLeft",
+      "ctrl-j": "workspace::ActivatePaneDown",
+      "ctrl-k": "workspace::ActivatePaneUp",
+      "ctrl-l": "workspace::ActivatePaneRight"
     }
   }
 ]
