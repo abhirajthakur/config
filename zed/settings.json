@@ -1,46 +1,89 @@
 {
-  "tab_size": 2,
+  "project_panel": {
+    "dock": "right",
+    "scrollbar": {
+      "show": "never",
+    },
+    "indent_guides": {
+      "show": "never",
+    },
+  },
   "outline_panel": {
-    "dock": "left"
+    "dock": "right"
   },
   "collaboration_panel": {
-    "dock": "left"
+    "dock": "right"
   },
   "agent": {
-    "dock": "right",
+    "dock": "left",
     "favorite_models": [],
     "model_parameters": []
   },
   "git_panel": {
-    "dock": "left"
+    "dock": "right"
   },
-  "icon_theme": "Material Icon Theme",
-  "which_key": {
+  "inlay_hints": {
+    "show_background": false,
     "enabled": true
   },
-  "buffer_line_height": "comfortable",
-  "project_panel": {
-    "dock": "left"
+  "icon_theme": "Material Icon Theme",
+  "cli_default_open_behavior": "existing_window",
+  "command_palette": {
+    "use_command_history": false
   },
-  "theme": "Tokyo Night",
+  "telemetry": {
+    "diagnostics": false,
+    "metrics": false,
+    "anthropic_retention": false
+  },
   "vim_mode": true,
   "ui_font_family": "FiraCode Nerd Font",
   "buffer_font_family": "FiraCode Nerd Font",
-  "close_panel_on_toggle": true,
-  "toolbar": {
-    "breadcrumbs": false,
-    "quick_actions": false
+  "ui_font_size": 15,
+  "buffer_font_size": 14,
+  "theme": {
+    "mode": "system",
+    "light": "One Light",
+    "dark": "Tokyo Night"
   },
-  "tab_bar": {
-    "show": true
+  "tab_size": 2,
+  "close_panel_on_toggle": true,
+  "theme_overrides": {
+    "Tokyo Night": {
+      "border.variant": "#1A1B26",
+      "border": "#1A1B26",
+      "title_bar.background": "#1A1B26",
+      "panel.background": "#1A1B26",
+      "players": [
+        {
+          "cursor": "#1E90FF"
+        }
+      ]
+    }
+  },
+  // "tab_bar": {
+  //   "show": false,
+  // },
+  "toolbar": {
+    "quick_actions": false
   },
   "scrollbar": {
     "show": "never"
   },
   "gutter": {
-    "min_line_number_digits": 0
+    "min_line_number_digits": 0,
+    "runnables": false
   },
+  "indent_guides": {
+    "enabled": false
+  },
+  "inline_code_actions": false,
+  "hover_popover_enabled": false,
   "when_closing_with_no_tabs": "keep_window_open",
   "close_on_file_delete": true,
-  "restore_on_file_reopen": false
+  "git": {
+    "inline_blame": {
+      "enabled": false
+    }
+  }
 }
