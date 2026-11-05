@@ -8,7 +8,7 @@ vim.pack.add({
   "https://github.com/b0o/SchemaStore.nvim",
   "https://github.com/nvim-mini/mini.surround",
   "https://github.com/nvim-lualine/lualine.nvim",
-  "https://github.com/nvim-mini/mini.tabline",
+  { src = "https://github.com/akinsho/bufferline.nvim", version = vim.version.range("*") },
   "https://github.com/folke/snacks.nvim",
   "https://github.com/MunifTanjim/nui.nvim",
   "https://github.com/folke/noice.nvim",
